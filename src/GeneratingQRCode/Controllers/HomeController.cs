@@ -18,6 +18,11 @@ namespace GeneratingQRCode.Controllers
         [HttpPost]
         public IActionResult CreateQRCode(QRCodeModel qrCodeModel)
         {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
             QRCodeGenerator qrCodeGenerator = new QRCodeGenerator();
             QRCodeData qrCodeData = qrCodeGenerator.CreateQrCode(qrCodeModel.QRCodeText, QRCodeGenerator.ECCLevel.Q);
             QRCode qrCode = new QRCode(qrCodeData);

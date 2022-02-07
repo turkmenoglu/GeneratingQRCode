@@ -4,7 +4,7 @@ namespace GeneratingQRCode.Models
 {
     public class QRCodeModel
     {
-        [Display(Name = "Enter QRCode Text")]
+        [Required]
         public string QRCodeText { get; set; }
     }
 }
